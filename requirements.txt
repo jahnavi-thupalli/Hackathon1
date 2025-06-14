@@ -3,7 +3,6 @@ ultralytics
 transformers
 gtts
 pydub
-torch
-torchaudio
+torch==2.2.2
 soundfile
 opencv-python-headless
