@@ -69,12 +69,12 @@ def detect_on_image(image):
     description = describe_scene_direct(detections, img_rgb.shape[1])
     return img_rgb, description
 
-def speak_text(text):
+def speak_text(text, filename="output.mp3"):
     tts = gTTS(text)
-    with tempfile.NamedTemporaryFile(delete=True, suffix=".mp3") as fp:
-        tts.save(fp.name)
-        audio = AudioSegment.from_mp3(fp.name)
-        return audio
+    tts.save(filename)
+    audio_file = open(filename, "rb")
+    audio_bytes = audio_file.read()
+    st.audio(audio_bytes, format='audio/mp3')
 
 # Streamlit UI
 st.title("🔍 Object Detection + Scene Description (YOLOv8 + TinyLlama)")
