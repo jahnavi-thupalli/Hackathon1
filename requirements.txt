@@ -6,4 +6,4 @@ pydub
 torch
 torchaudio
 soundfile
-opencv
+opencv-python-headless
